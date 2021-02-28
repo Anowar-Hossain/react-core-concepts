@@ -1,0 +1,74 @@
+import React, { useState } from 'react';
+import logo from './logo.svg';
+import './App.css';
+
+function App(){
+  const names =['Arman', 'Arafat', 'Emtias', "Morshed"]
+  const products =[
+    {name:'Photoshop', price: '$99.89'},
+    {name:'illustrator', price: '$67.89'},
+    {name:'pdf Reader', price: '$49.89'},
+    {name:'Premier EL', price: '$55.89'}
+  ]
+ 
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+       <p>i am a React Person</p>
+       <Counter></Counter>
+       <ul>
+        {
+          names.map (name => <li>{name}</li>)
+        }
+        {
+          products.map(product =><li>{product.name}</li>)
+        }
+       </ul>
+       {
+         products.map(pd =><Product product={pd}></Product>)
+       }
+       <Person name="Sohan" title="student"></Person>
+       <Person name="Sowrab" title="student"></Person>
+       <Person name="sohag" title="business"></Person>
+       
+      </header>
+    </div>
+  );
+}
+function Product(props){
+  const productStyle={
+    border:'1px solid gray',
+    borderRadius: '5px',
+    height: '200px',
+    width: '200px',
+    backgroundColor:'lightgray',
+    float:'left'
+  }
+  const {name, price} = props.product;
+  return(
+    <div style={productStyle}>
+      <h3>{name}</h3>
+      <h5>{price}</h5>
+      <button>By now</button>
+    </div>
+  )
+}
+function Counter(){
+  const [count, setCount] = useState(20);
+  return(
+    <div>
+      <h1>Count: {count}</h1>
+    </div>
+  )
+}
+function Person(props){
+  return (
+    <div style={{border:'2px solid yellow', margin:'10px', width: '300px'}}>
+      <h1>Name:{props.name}</h1>
+      <p>job:{props.title}</p>
+    </div>
+  )
+}
+
+export default App;

@@ -1,0 +1,31 @@
+import logo from './logo.svg';
+import './App.css';
+
+function App(){
+  
+  return (
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+       <p>i am a React Person</p>
+       <Person></Person>
+       <Person></Person>
+       <Person></Person>
+      </header>
+    </div>
+  );
+}
+function Person(){
+  const PersonStyle={
+    border:'2px solid red',
+    margin:'10px'
+  }
+  return (
+    <div style={{border:'2px solid yellow', margin:'10px'}}>
+      <h1>Name:Anowar Sohan</h1>
+      <h3>Presentation work</h3>
+    </div>
+  )
+}
+
+export default App;
